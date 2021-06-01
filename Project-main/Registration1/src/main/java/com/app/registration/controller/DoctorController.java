@@ -27,42 +27,38 @@ import com.app.registration.services.DoctorService;
 import com.app.registration.services.HospitalService;
 //import com.app.registration.services.HospitalService;
 
-
 @RestController
+@CrossOrigin("*")
 public class DoctorController {
-	
+
 	@Autowired
 	public DoctorService doctorService;
 	@Autowired
 	public DoctorRepository repository;
 	@Autowired
 	public HospitalService hospitalService;
-	
-	
-	
-	 @GetMapping("/doctors")
-	 @CrossOrigin(origins="http://localhost:4200")
-	 public List<Doctor> getAll() {
-  	  return doctorService.getAll();
-    }
-    
+
+	@GetMapping("/doctors")
+	public List<Doctor> getAll() {
+		return doctorService.getAll();
+	}
+
 	// http://localhost:8800/api/customer
 	@PostMapping("/doctors/{id}")
-	@CrossOrigin(origins="http://localhost:4200")
-	public ResponseEntity<?> add(@RequestBody Doctor doctor,@PathVariable Long id) {
+	public ResponseEntity<?> add(@RequestBody Doctor doctor, @PathVariable Long id) {
 		if (doctor != null) {
 			Hospital hospital = hospitalService.getById(id);
 			doctor.setHospital(hospital);
-			Doctor add = doctorService.add(doctor);
-			
-			return new ResponseEntity<>("Doctor Saved Successfully", HttpStatus.OK);
+			 doctorService.add(doctor);
+
+			return new ResponseEntity<>(HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>("No doctor Found", HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@GetMapping("/doctors/{id}")
-	@CrossOrigin(origins="http://localhost:4200")
+
 	public ResponseEntity<?> getById(@PathVariable Long id) {
 		if (id != null) {
 			Doctor doc = doctorService.getById(id);
@@ -73,9 +69,8 @@ public class DoctorController {
 			return new ResponseEntity<>("Not doctor found with doctorName " + id, HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 	@DeleteMapping("/doctors/{id}")
-	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<?> deleteDoctorById(@PathVariable Long id) {
 		if (id != null) {
 			doctorService.deleteDoctor(id);
@@ -86,10 +81,9 @@ public class DoctorController {
 			return new ResponseEntity<>("Not Id found " + id, HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 	@PutMapping("/doctors/{id}")
-	@CrossOrigin(origins="http://localhost:4200")
-	public ResponseEntity<?> update(@PathVariable Long id , @RequestBody Doctor doctor) {
+	public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Doctor doctor) {
 		Doctor doc = doctorService.getById(id);
 		if (doc != null) {
 			doctorService.update(doctor);
@@ -100,10 +94,8 @@ public class DoctorController {
 			return new ResponseEntity<>(doc, HttpStatus.NOT_FOUND);
 		}
 	}
-	
-	
-	
-	//Doctor
+
+	// Doctor
 //	 	@GetMapping("/doctors/{id}")
 //		  @CrossOrigin(origins="http://localhost:4200")
 //		  public List<DoctorDTO> getDoctorList(@PathVariable("id")Long id) {

@@ -23,16 +23,17 @@ export class AddDoctorComponent implements OnInit {
       doctorName: new FormControl(null, Validators.required),
       department: new FormControl(null, Validators.required),
       gender: new FormControl(null, Validators.required),
-      phoneNo: new FormControl(null, Validators.required)
+      phoneNo: new FormControl(null, Validators.required),
+      h1id: new FormControl(null, Validators.required)
     });
   }
 
   onSubmit(): void{
     //this.countfromChild.emit(this.countfromParent + 5);
     this.doctorService.createDoctor(this.signupForm.value).subscribe(data =>{
-      console.log("Doctor Data added successfully");
+      console.log("Doctor Registered Successfullt" + data);
       this.router.navigate(['/doctors']);
     });
-    console.log(this.signupForm);
+    // console.log(this.signupForm);
 }
 }

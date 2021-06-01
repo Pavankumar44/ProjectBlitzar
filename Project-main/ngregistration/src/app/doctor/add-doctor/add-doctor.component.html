@@ -3,19 +3,22 @@
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="form-group">
         
+        <div class="form-group">
+            <label for="h1id">Hospital Id</label>
+            <input type="number" id="h1id" class="form-control" formControlName="h1id" />
+            <span class="errors" *ngIf="!signupForm.get('h1id').valid && signupForm.get('h1id').touched"></span>
+        </div>
 
         <div class="form-group">
             <label for="doctorName">Doctor Name</label>
             <input type="text" id="doctorName" class="form-control" formControlName="doctorName" />
             <span class="errors" *ngIf="!signupForm.get('doctorName').valid && signupForm.get('doctorName').touched">Enter a Valid Doctor Name</span>
-
         </div>
 
         <div class="form-group">
             <label for="department">Department</label>
             <input type="department" id="department" class="form-control" formControlName="department" />
             <span class="errors" *ngIf="!signupForm.get('department').valid && signupForm.get('department').touched">Enter a Valid Department</span>
-
         </div>
 
         <div class="form-group">

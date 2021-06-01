@@ -36,6 +36,7 @@ public class Doctor implements Serializable {
 	private String department;
 	private String gender;
 	private Long phoneNo;
+	private Long h1id;
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "hId", referencedColumnName = "id")
 	private Hospital hospital;
@@ -98,6 +99,16 @@ public class Doctor implements Serializable {
 	}
 	public void setPhoneNo(Long phoneNo) {
 		this.phoneNo = phoneNo;
+	}
+
+
+	public Long getH1id() {
+		return h1id;
+	}
+
+
+	public void setH1id(Long hid) {
+		this.h1id = hid;
 	}
 
 
