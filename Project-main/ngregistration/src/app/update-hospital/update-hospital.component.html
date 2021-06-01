@@ -1,0 +1,54 @@
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+
+
+        <div class="form-group">
+            <label for="hospitalName">Hospital Name</label>
+            <input type="text" id="hospitalName" class="form-control" formControlName="hospitalName" />
+            <span class="errors" *ngIf="!updateForm.get('hospitalName').valid && updateForm.get('hospitalName').touched">Enter a Valid Hospital Name</span>
+
+        </div>
+
+        <div class="form-group">
+            <label for="streetAddress">Street Address</label>
+            <input type="streetAddress" id="streetAddress" class="form-control" formControlName="streetAddress" />
+            <span class="errors" *ngIf="!updateForm.get('streetAddress').valid && updateForm.get('streetAddress').touched">Enter a Valid Street Address</span>
+
+        </div>
+
+        <div class="form-group">
+            <label for="streetAddress2">Street Address2</label>
+            <input type="streetAddress2" id="streetAddress2" class="form-control" formControlName="streetAddress2" />
+            <span class="errors" *ngIf="!updateForm.get('streetAddress2').valid && updateForm.get('streetAddress2').touched">Enter a Valid Street Address2</span>
+
+        </div>
+
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" class="form-control" formControlName="city" />
+            <span class="errors" *ngIf="!updateForm.get('city').valid && updateForm.get('city').touched">Enter a Valid City</span>
+
+        </div>
+
+        <div class="form-group">
+            <label for="pincode">Pincode</label>
+            <input type="pincode" id="pincode" class="form-control" formControlName="pincode" />
+            <span class="errors" *ngIf="!updateForm.get('pincode').valid && updateForm.get('pincode').touched">Enter a Valid Pincode</span>
+
+        </div>
+
+        <div class="form-group">
+            <label for="contactNo">Contact Number</label>
+            <input type="text" id="contactNo" class="form-control" formControlName="contactNo" />
+            <span class="errors" *ngIf="!updateForm.get('contactNo').valid && updateForm.get('contactNo').touched">Enter a Valid Contact Number</span>
+
+        </div>
+        <div>
+        <button class="btn btn-success" [disabled]="!updateForm.valid">Register</button>
+        </div>
+    </form>
+    </div>
+</div>
+</div>

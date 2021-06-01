@@ -1,0 +1,24 @@
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from './user';
+import { HttpClient } from '@angular/common/http';
+import { Admin } from './admin';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RegistrationService {
+
+  constructor( private _http : HttpClient) { }
+
+  public loginUserFromRemote(user :User):Observable<any>{
+    return  this._http.post<any>("http://localhost:9000/login",user)
+
+  }
+  public registerUserFromRemote(user : User):Observable<any>{
+    return this._http.post<any>("http://localhost:9000/registeruser",user)
+
+
+  }
+}
