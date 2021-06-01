@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Doctor } from './doctor';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +20,7 @@ export class DoctorService {
   }
 
   createDoctor(doctor:Doctor): Observable<Doctor>{
-    return this.httpClient.post<Doctor>(this.baseUrl, doctor);
+    return this.httpClient.post<Doctor>(this.baseUrl + '/' + doctor.h1id, doctor);
   }
 
   getDoctorById(id: number): Observable<Doctor> {
