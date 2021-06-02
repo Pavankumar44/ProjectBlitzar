@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DoctorService } from 'src/app/doctor.service';
 import { Hospital } from 'src/app/hospital';
+import { HospitalService } from 'src/app/hospital.service';
 
 @Component({
   selector: 'app-add-doctor',
@@ -14,7 +15,7 @@ export class AddDoctorComponent implements OnInit {
   hospitals: Hospital[];
 
   signupForm: FormGroup;
-  constructor(private doctorService: DoctorService, private router: Router) { }
+  constructor(private doctorService: DoctorService, private hospitalService: HospitalService ,private router: Router) { }
 
   ngOnInit(): void {
 
@@ -26,7 +27,11 @@ export class AddDoctorComponent implements OnInit {
       phoneNo: new FormControl(null, Validators.required),
       h1id: new FormControl(null, Validators.required)
     });
-  }
+
+   this.hospitalService.getAllHospitals().subscribe(hospital => {
+         this.hospitals = hospital;
+   });
+    }
 
   onSubmit(): void{
     //this.countfromChild.emit(this.countfromParent + 5);
