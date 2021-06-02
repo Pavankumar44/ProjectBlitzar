@@ -29,9 +29,10 @@ export class AddDoctorComponent implements OnInit {
     });
 
    this.hospitalService.getAllHospitals().subscribe(hospital => {
-         this.hospitals = hospital;
+         this.hospitals = hospital; 
    });
     }
+    
 
   onSubmit(): void{
     //this.countfromChild.emit(this.countfromParent + 5);
