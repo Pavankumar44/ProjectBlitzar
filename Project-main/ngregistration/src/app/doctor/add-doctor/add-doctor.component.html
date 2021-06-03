@@ -7,9 +7,10 @@
             <div class="input-group-prepend">
             <label class="input-group-text" for="h1id">Hospital Id</label>
             </div>
-            <select type="number" id="h1id" class="custom-select" formControlName="h1id"  >
+            <select type="number" id="h1id" class="custom-select" formControlName="h1id">
+                <option selected>Select</option>
                 <option *ngFor="let hospital of hospitals">{{ hospital.id }}</option>
-                 
+
             </select>
             <span class="errors" *ngIf="!signupForm.get('h1id').valid && signupForm.get('h1id').touched"></span>
         </div>
@@ -28,7 +29,11 @@
 
         <div class="form-group">
             <label for="gender">Gender</label>
-            <input type="gender" id="gender" class="form-control" formControlName="gender" />
+            <select class="form-control" id="gender" calss="dropdown" formControlName="gender"> 
+                <option selected>Select</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
             <span class="errors" *ngIf="!signupForm.get('gender').valid && signupForm.get('gender').touched">Enter a Valid Gender</span>
 
         </div>

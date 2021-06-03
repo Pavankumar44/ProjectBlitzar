@@ -7,13 +7,16 @@ import { AddHospitalComponent } from './hospital/add-hospital/add-hospital.compo
 import { HospitalComponent } from './hospital/hospital.component';
 import { LoginComponent } from './login/login.component';
 import { OpformComponent } from './opform/opform.component';
+import { AddPatientComponent } from './patient/add-patient/add-patient.component';
+import { PatientComponent } from './patient/patient.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { UpdateDoctorComponent } from './update-doctor/update-doctor.component';
 import { UpdateHospitalComponent } from './update-hospital/update-hospital.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
-  {path:'opform',component:OpformComponent},
+  {path:'patients',component:PatientComponent},
+  {path:'add-patient',component:AddPatientComponent},
   {path:'registration',component:RegistrationComponent},
   {path: 'login',component:LoginComponent},
   {path: 'adminlogin',component:AdminComponent},

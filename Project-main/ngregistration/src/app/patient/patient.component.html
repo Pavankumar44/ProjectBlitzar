@@ -1,0 +1,39 @@
+<div class="container pt-5">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Date Of Birth</th>
+            <th>Address</th>
+            <th>Address2</th>
+            <th>City</th>
+            <th>Pincode</th>
+            <th>Phone Number</th>
+            <th>Hospital Name</th>
+            <th>Doctor Name</th>
+            <th>Time Slot</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let patient of patients">
+                <td>{{patient.id}}</td>
+                <td>{{patient.firstName}}</td>
+                <td>{{patient.lastName}}</td>
+                <td>{{patient.gender}}</td>
+                <td>{{patient.dateOfBirth}}</td>
+                <td>{{patient.address}}</td>
+                <td>{{patient.address2}}</td>
+                <td>{{patient.city}}</td>
+                <td>{{patient.pincode}}</td>
+                <td>{{patient.phoneNo}}</td>
+                <td>{{patient.hospital}}</td>
+                <td>{{patient.doctor}}</td>
+                <td>{{patient.timeSlots</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -19,7 +19,11 @@
 
         <div class="form-group">
             <label for="gender">Gender</label>
-            <input type="gender" id="gender" class="form-control" formControlName="gender" />
+            <select class="form-control" id="gender" calss="dropdown" formControlName="gender">
+                <option selected>Select</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
             <span class="errors" *ngIf="!updateForm.get('gender').valid && updateForm.get('gender').touched">Enter a Valid Gender</span>
 
         </div>
