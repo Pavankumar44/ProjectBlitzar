@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Doctor } from '../doctor';
 import { Patient } from '../patient';
 import { PatientService } from '../patient.service';
 
@@ -11,6 +12,7 @@ import { PatientService } from '../patient.service';
 export class PatientComponent implements OnInit {
 
   patients: Patient[];
+  
 
   constructor(private patientService:PatientService, private router: Router) {}
 

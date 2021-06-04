@@ -11,6 +11,5 @@ export class Patient {
     phoneNo: number;
     hospital: string;
     doctor: string;
-    timeSlots: string;
 
 }

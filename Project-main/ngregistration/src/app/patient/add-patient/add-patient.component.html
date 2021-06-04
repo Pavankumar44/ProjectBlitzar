@@ -4,18 +4,18 @@
          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="form-group">
                 <div class="form-group row">
                     <div class="form-group col-md-6">
-                      <label for="inputFirstName">First Name</label>
-                      <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" formControllerName="firstName">
+                      <label for="inputfirstName">First Name</label>
+                      <input type="text" class="form-control" id="inputfirstName" placeholder="First Name" formControlName="firstName">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputLastName">Last Name</label>
-                        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" formControllerName="firstName">
+                        <label for="inputlastName">Last Name</label>
+                        <input type="text" class="form-control" id="inputlastName" placeholder="Last Name" formControlName="lastName">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
                       <label for="gender">Gender</label>
-                      <select class="form-control" id="gender" type="text" formController="gender">
+                      <select class="form-control" id="gender" type="text" formControlName="gender">
                         <option selected>select</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -61,9 +61,9 @@
                  <div class="form-group row">
                    <div class="col-sm-6">
                        <label for="hospital">Hospital</label>
-                       <select class="form-control" type="text" id="hospital" formControlName="hospital">
-                          <option selected>Select</option>
-                          <option *ngFor="let hospital of hospitals">{{ hospital.hospitalName }},{{hospital.streetAddress}}</option>
+                       <select  class="form-control" type="text" id="hospital" formControlName="hospital">
+                        <option selected>Select</option>  
+                        <option *ngFor="let hospital of hospitals">{{ hospital.hospitalName }},{{hospital.streetAddress}}</option>
                        </select>
                        <span class="errors" *ngIf="!signupForm.get('hospital').valid && signupForm.get('hospital').touched">Select Hospital </span>
                    </div>
@@ -71,19 +71,14 @@
                    <div class="form-group row">
                       <div class="col-sm-6">
                           <label for="doctor">Doctor</label>
-                             <select class="form-control" type="text" id="doctor"formControlName="doctor">
-                               <option selected>Select</option>
-                               <option *ngFor="let doctor of doctors">{{ doctor.doctorName }}</option>
+                             <select *ngIf="hospitals" class="form-control" type="text" id="doctor"formControlName="doctor">
+                                <option selected>Select</option>
+                                <option *ngFor="let doctor of doctors">{{ doctor.doctorName }}</option>
                             </select>
                             <span class="errors" *ngIf="!signupForm.get('doctor').valid && signupForm.get('doctor').touched">Select Doctor</span>
                         </div>
-                        <div class="col-sm-6">     
-                            <label for="timeSlots">Time Slot</label>
-                            <input type="text" id="timeSlots" class="form-control" formControlName="timeSlots" />
-                            <span class="errors" *ngIf="!signupForm.get('timeSlots').valid && signupForm.get('timeSlots').touched">Select time Slot</span>
-                        </div>
                     </div>
-                        <button class="btn btn-success" [disabled]="!signupForm.valid">Submit</button>
+                        <button class="btn btn-success my-5" [disabled]="!signupForm.valid">Submit</button>
             </form>
         </div>
    </div>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Doctor } from './doctor';
 import { Hospital } from './hospital';
 
 @Injectable({
@@ -32,5 +33,8 @@ export class HospitalService {
   }
   updateHospital(hospital: Hospital): Observable<Hospital> {
     return this.httpClient.put<Hospital>(this.baseUrl + '/' + hospital.id , hospital);
+  }
+  getDoctorsUsingHospital(id: number): Observable<Doctor[]> {
+    return this.httpClient.get<Doctor[]>("http://localhost:9000/hospital" + '/'+ id);
   }
 }

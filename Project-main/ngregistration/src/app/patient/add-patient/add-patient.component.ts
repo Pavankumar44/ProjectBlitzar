@@ -36,8 +36,7 @@ export class AddPatientComponent implements OnInit {
       pincode: new FormControl(null, Validators.required),
       phoneNo: new FormControl(null, Validators.required),
       hospital: new FormControl(null, Validators.required),
-      doctor: new FormControl(null, Validators.required),
-      timeSlots:new FormControl(null, Validators.required)
+      doctor: new FormControl(null, Validators.required)
       });
 
       this.hospitalService.getAllHospitals().subscribe(hospital => {
@@ -49,9 +48,10 @@ export class AddPatientComponent implements OnInit {
   }
 
   onSubmit(): void{
+    console.log(this.signupForm.value);
     this.patientService.createPatient(this.signupForm.value).subscribe(data =>{
       console.log("Form Submitted successfully");
-      this.router.navigate(['/add-patient']);
+      this.router.navigate(['/patients']);
     });
     console.log(this.signupForm);
   }
